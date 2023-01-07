@@ -1,6 +1,7 @@
 {
   "name": "todo-manager",
   "version": "1.0.0",
+  "description": "", 
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,13 +14,13 @@
     ]
   },
   "keywords": [],
-  "author": "srinu",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.8",
-    "express": "^4.18.2",
+    "express": "^4.18.1",
     "pg": "^8.8.0",
-    "sequelize": "^6.28.0"
+    "sequelize": "^6.23.2"
   },
   "devDependencies": {
     "eslint": "^8.24.0",
@@ -30,6 +31,5 @@
     "prettier": "^2.7.1",
     "sequelize-cli": "^6.5.1",
     "supertest": "^6.2.4"
-  },
-  "description": ""
+  }
 }
