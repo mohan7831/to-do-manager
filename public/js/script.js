@@ -1,1 +1,2 @@
-console.log("Sushanth Todo Manager");
+console.log("Let us check inside this Static File ");
+console.log("I am inside Public Folder ");
