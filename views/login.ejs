@@ -1,62 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="csrf-token" content="<%= csrfToken %>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/css/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<%= csrfToken %>">
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
+    <link rel="stylesheet" href="./css/style.css">
+    <title><%=title%></title>
+</head>
+<body>
     <div class="grid grid-cols-6">
-      <div class="col-span-2 col-start-3">
-        <%- include("header.ejs") %>
-        <h6 class="mb-4 text-xl text-gray-900">Login to Todo Application</h6>
-
-        <% if(messages && messages.error && messages.error.length > 0)  { %>
-          <% for(var i=0; i<messages.error.length; i++) { %>
-            <li class="mb-2 text-rose-500"> <%= messages.error[i] %></li>
-          <% } %>
-        <% } %>
-
-        <form action="/session" method="post">
-          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-          <div>
-            <label for="emailID" class="py-1 text-xl text-gray-900"
-              >Email :</label
-            >
-            <input
-              type="email"
-              id="emailID"
-              name="email"
-              required
-              class="w-full border border-gray-600 rounded px-5 py-2 my-2 text-gray-900"
-            />
-          </div>
-          <div>
-            <label for="pwd" class="py-1 text-xl text-gray-900"
-              >Password :</label
-            >
-            <input
-              type="password"
-              id="pwd"
-              name="password"
-              required
-              class="w-full border border-gray-600 rounded px-5 py-2 my-2 text-gray-900"
-            />
-          </div>
-          <div>
-            <input
-              type="submit"
-              value="Sign in"
-              class="bg-green-600 text-white px-5 py-2 rounded my-1"
-            />
-          </div>
-        </form>
-
-      </div>
+        <div class="col-start-3 col-span-2">
+            <%- include('header.ejs') %>
+            <h6 class="py-4">Login to your account</h6>
+            <div>
+                <% if (messages && messages.error && messages.error.length > 0) { %>
+                    <% for(var i=0; i<messages.error.length; i++) { %>
+                        <p class="bg-red-100 my-3 list-none rounded px-4 py-2"><%= messages.error[i] %></p>
+                    <% } %>
+                <% } %>
+            </div>
+            <form action="/session" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                <div class="py-5">
+                    <label for="email">emailID: </label>
+                    <input id="email" type="email" name="email" class="border border-color-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <div class="py-5">
+                    <label for="password">Your Password : </label>
+                    <input id="password" type="password" name="password" class="border border-color-300 text-gray-900 rounded p-2 w-full">
+                </div>
+                <button type="submit" class="bg-green-600 text-white hover:bg-green-900 font-medium rounded px-5 py-2">sign in</button>
+            </form>
+        </div>
     </div>
-  </body>
+</body>
 </html>
